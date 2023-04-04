@@ -2,8 +2,8 @@ package src;
 
 public class Main {
 	public static void main(String[] args) {
-		UserAccess access = new UserAccess();
-		access.giveUserAccess();
+		UserAccess myAccess = new UserAccess();
+		myAccess.userAccess();
 	}
 
 }

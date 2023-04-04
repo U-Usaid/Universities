@@ -3,39 +3,33 @@ package src;
 import java.util.Scanner;
 
 public class UserAccess {
-	static String user;
-	static String pass;
-	static String databaseName;
+	static String user = "sa";
+	static String pass = "root";
+	static String databaseName = "Universities";
 
-	Menue menue = new Menue();
+	Menue myMenue = new Menue();
 
-	public void giveUserAccess() {
-		String expectedUser = "sa";
-		String expectedPass = "root";
-		String expectedDatabase = "university";
-
-		Scanner accessSc = new Scanner(System.in);
-		System.out.println("==================LOGIN TO THE DATABASE==================");
+	public void userAccess() {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("==================Login to Database==================");
 		boolean accessGranted = false;
 		while (!accessGranted) {
-			System.out.print("Enter your Database name: ");
-			String databaseInput = accessSc.next();
-			System.out.print("Enter your user name: ");
-			String userInput = accessSc.next();
-			System.out.print("Enter your password: ");
-			String passInput = accessSc.next();
+			System.out.print("Enter Database name: ");
+			String databaseInput = sc.next();
+			System.out.print("Enter user name: ");
+			String userInput = sc.next();
+			System.out.print("Enter password: ");
+			String passInput = sc.next();
 			System.out.println("=========================================================");
 
 			// Check if the entered credentials match the expected values
-			if (databaseInput.equals(expectedDatabase) && userInput.equals(expectedUser)
-					&& passInput.equals(expectedPass)) {
-				databaseName = databaseInput;
-				user = userInput;
-				pass = passInput;
-				System.out.println("Access granted");
-				menue.showMenue();
+			if (databaseInput.equals(databaseName) && userInput.equals(user)
+					&& passInput.equals(pass)) {
+				System.out.println("Access granted...:)");
+				myMenue.showMenue();
 			} else {
-				System.out.println("Access denied");
+				System.out.println("Access denied....:0");
 			}
 		}
 
